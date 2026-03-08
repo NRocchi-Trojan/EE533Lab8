@@ -1,0 +1,11 @@
+# Output products list for <FiFoSRAM>
+FiFoSRAM.asy
+FiFoSRAM.ngc
+FiFoSRAM.sym
+FiFoSRAM.v
+FiFoSRAM.veo
+FiFoSRAM.vhd
+FiFoSRAM.vho
+FiFoSRAM.xco
+FiFoSRAM_flist.txt
+FiFoSRAM_xmdf.tcl
