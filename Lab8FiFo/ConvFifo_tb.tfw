@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : ConvFifo_tb.tfw
+// /___/   /\     Timestamp : Mon Mar 09 16:55:58 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: ConvFifo_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module ConvFifo_tb;
+    reg clk = 1'b0;
+    reg [71:0] FiFoIn = 72'b000000000000000000000000000000000000000000000000000000000000000000000000;
+    reg FifoRead = 1'b0;
+    reg FifoWrite = 1'b0;
+    reg PacketHead = 1'b0;
+    reg PacketTail = 1'b0;
+    reg rst = 1'b0;
+    reg [7:0] SRAMAddr = 8'b00000000;
+    reg [71:0] SRAMData = 72'b000000000000000000000000000000000000000000000000000000000000000000000000;
+    reg SRAMOp = 1'b0;
+    wire [71:0] DataOutA;
+    wire [71:0] DataOutB;
+    wire FifoFull;
+    wire [7:0] HeadFifoAddr;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    ConvertibleFifo UUT (
+        .clk(clk),
+        .FiFoIn(FiFoIn),
+        .FifoRead(FifoRead),
+        .FifoWrite(FifoWrite),
+        .PacketHead(PacketHead),
+        .PacketTail(PacketTail),
+        .rst(rst),
+        .SRAMAddr(SRAMAddr),
+        .SRAMData(SRAMData),
+        .SRAMOp(SRAMOp),
+        .DataOutA(DataOutA),
+        .DataOutB(DataOutB),
+        .FifoFull(FifoFull),
+        .HeadFifoAddr(HeadFifoAddr));
+
+    initial begin
+        // -------------  Current Time:  95ns
+        #95;
+        FifoWrite = 1'b1;
+        SRAMOp = 1'b1;
+        FiFoIn = 72'b100000000000000000000000000000000000000000000000000000000000000000000000;
+        SRAMData = 72'b100000000000000000000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  495ns
+        #400;
+        FiFoIn = 72'b111100000000000000000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  1495ns
+        #1000;
+        FifoWrite = 1'b0;
+        // -------------------------------------
+    end
+
+endmodule
+

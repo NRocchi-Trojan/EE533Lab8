@@ -1,0 +1,4 @@
+verilog work "m2_1_8.v"
+verilog work "m2_1_72.v"
+verilog work "ConvertibleFifo.vf"
+verilog work C:/Xilinx/10.1/ISE/verilog/src/glbl.v

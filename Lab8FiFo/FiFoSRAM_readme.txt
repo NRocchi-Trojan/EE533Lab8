@@ -1,5 +1,5 @@
 The following files were generated for 'FiFoSRAM' in directory 
-Z:\shared\SharedProjects\EE533Lab8\Lab8FiFo:
+Z:\SharedXM\EE533Lab8\Lab8FiFo:
 
 FiFoSRAM.asy:
    Graphical symbol information file. Used by the ISE tools and some

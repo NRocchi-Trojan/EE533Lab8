@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.31
-# Date: Sun Mar 08 03:30:16 2026
+# Date: Mon Mar 09 21:52:40 2026
 #
 ##############################################################
 #
@@ -65,11 +65,11 @@ CSET port_b_register_inputs=false
 CSET port_b_write_enable_polarity=Active_High
 CSET primitive_selection=Optimize_For_Area
 CSET select_primitive=16kx1
-CSET width_a=64
-CSET width_b=64
+CSET width_a=72
+CSET width_b=72
 CSET write_mode_port_a=Read_After_Write
 CSET write_mode_port_b=Read_After_Write
 # END Parameters
 GENERATE
-# CRC: 7ba0fb20
+# CRC: 7ec2ba64
 

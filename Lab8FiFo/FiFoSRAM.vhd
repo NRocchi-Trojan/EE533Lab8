@@ -46,9 +46,9 @@ ENTITY FiFoSRAM IS
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dina: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	doutb: OUT std_logic_VECTOR(63 downto 0);
+	dina: IN std_logic_VECTOR(71 downto 0);
+	douta: OUT std_logic_VECTOR(71 downto 0);
+	doutb: OUT std_logic_VECTOR(71 downto 0);
 	wea: IN std_logic);
 END FiFoSRAM;
 
@@ -60,9 +60,9 @@ component wrapped_FiFoSRAM
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dina: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	doutb: OUT std_logic_VECTOR(63 downto 0);
+	dina: IN std_logic_VECTOR(71 downto 0);
+	douta: OUT std_logic_VECTOR(71 downto 0);
+	doutb: OUT std_logic_VECTOR(71 downto 0);
 	wea: IN std_logic);
 end component;
 
@@ -82,8 +82,8 @@ end component;
 			c_yhierarchy => "hierarchy1",
 			c_ysinita_is_high => 1,
 			c_ybottom_addr => "0",
-			c_width_b => 64,
-			c_width_a => 64,
+			c_width_b => 72,
+			c_width_a => 72,
 			c_sinita_value => "0",
 			c_sinitb_value => "0",
 			c_limit_data_pitch => 18,

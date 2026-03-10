@@ -1,0 +1,10 @@
+[Inputs]
+sel
+=D0[71:0]=
+=D1[71:0]=
+[Outputs]
+=O[71:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel m2_1_72
+

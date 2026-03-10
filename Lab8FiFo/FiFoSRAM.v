@@ -52,9 +52,9 @@ input [7 : 0] addra;
 input [7 : 0] addrb;
 input clka;
 input clkb;
-input [63 : 0] dina;
-output [63 : 0] douta;
-output [63 : 0] doutb;
+input [71 : 0] dina;
+output [71 : 0] douta;
+output [71 : 0] doutb;
 input wea;
 
 // synthesis translate_off
@@ -93,8 +93,8 @@ input wea;
 		.c_sim_collision_check("NONE"),
 		.c_sinita_value("0"),
 		.c_sinitb_value("0"),
-		.c_width_a(64),
-		.c_width_b(64),
+		.c_width_a(72),
+		.c_width_b(72),
 		.c_write_modea(0),
 		.c_write_modeb(0),
 		.c_ybottom_addr("0"),

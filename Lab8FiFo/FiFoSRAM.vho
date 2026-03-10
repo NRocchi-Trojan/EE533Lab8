@@ -35,9 +35,9 @@ component FiFoSRAM
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dina: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	doutb: OUT std_logic_VECTOR(63 downto 0);
+	dina: IN std_logic_VECTOR(71 downto 0);
+	douta: OUT std_logic_VECTOR(71 downto 0);
+	doutb: OUT std_logic_VECTOR(71 downto 0);
 	wea: IN std_logic);
 end component;
 

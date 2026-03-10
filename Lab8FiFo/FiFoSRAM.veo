@@ -36,9 +36,9 @@ FiFoSRAM YourInstanceName (
 	.addrb(addrb), // Bus [7 : 0] 
 	.clka(clka),
 	.clkb(clkb),
-	.dina(dina), // Bus [63 : 0] 
-	.douta(douta), // Bus [63 : 0] 
-	.doutb(doutb), // Bus [63 : 0] 
+	.dina(dina), // Bus [71 : 0] 
+	.douta(douta), // Bus [71 : 0] 
+	.doutb(doutb), // Bus [71 : 0] 
 	.wea(wea));
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
