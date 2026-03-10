@@ -52,7 +52,7 @@ WARNING:HDLCompiler:559 - "ConvertibleFifo.vf" Line 372. Instantiating unknown
    module FiFoSRAM
 Completed static elaboration
 Fuse Memory Usage: 54152 Kb
-Fuse CPU Usage: 1108 ms
+Fuse CPU Usage: 999 ms
 Compiling module glbl
 Compiling module LDC(INIT=1'b0)_0
 Compiling module m2_1_8
@@ -115,4 +115,4 @@ Compiling module ConvFifo_tb
 Compiled 59 Verilog Units
 Built simulation executable ConvFifo_tb_isim_beh.exe
 Fuse Memory Usage: 55436 Kb
-Fuse CPU Usage: 3499 ms
+Fuse CPU Usage: 3218 ms

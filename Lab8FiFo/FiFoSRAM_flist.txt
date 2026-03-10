@@ -1,5 +1,6 @@
 # Output products list for <FiFoSRAM>
 FiFoSRAM.asy
+FiFoSRAM.mif
 FiFoSRAM.ngc
 FiFoSRAM.sym
 FiFoSRAM.v

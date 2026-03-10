@@ -1,0 +1,10 @@
+[Inputs]
+D
+G
+CLR
+[Outputs]
+Q
+[BiDir]
+[ATTRIBUTES]
+VeriModel latch_synch_clear
+

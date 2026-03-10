@@ -25,7 +25,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_48
         SIGNAL PacketTail
         SIGNAL SRAMOp
-        SIGNAL DataOutB(71:0)
         SIGNAL SRAMData(71:0)
         SIGNAL FiFoIn(71:0)
         SIGNAL SRAMAddr(7:0)
@@ -39,6 +38,17 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_72
         SIGNAL XLXN_75
         SIGNAL XLXN_76
+        SIGNAL DataOutB(71:0)
+        SIGNAL XLXN_79(7:0)
+        SIGNAL XLXN_82
+        SIGNAL XLXN_83
+        SIGNAL XLXN_84
+        SIGNAL XLXN_85(7:0)
+        SIGNAL XLXN_86
+        SIGNAL XLXN_87
+        SIGNAL XLXN_88
+        SIGNAL XLXN_89
+        SIGNAL XLXN_90
         PORT Input clk
         PORT Output DataOutA(71:0)
         PORT Input FifoRead
@@ -49,10 +59,10 @@ BEGIN SCHEMATIC
         PORT Output FifoFull
         PORT Input PacketTail
         PORT Input SRAMOp
-        PORT Output DataOutB(71:0)
         PORT Input SRAMData(71:0)
         PORT Input FiFoIn(71:0)
         PORT Input SRAMAddr(7:0)
+        PORT Output DataOutB(71:0)
         BEGIN BLOCKDEF m2_1_8
             TIMESTAMP 2026 3 8 2 26 53
             RECTANGLE N 64 -192 320 0 
@@ -84,21 +94,6 @@ BEGIN SCHEMATIC
             LINE N 112 -144 48 -144 
             ARC N 28 -144 204 32 192 -96 112 -144 
             LINE N 112 -48 48 -48 
-        END BLOCKDEF
-        BEGIN BLOCKDEF cb8ce
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 384 -128 320 -128 
-            RECTANGLE N 320 -268 384 -244 
-            LINE N 384 -256 320 -256 
-            LINE N 0 -192 64 -192 
-            LINE N 192 -32 64 -32 
-            LINE N 192 -64 192 -32 
-            LINE N 80 -128 64 -144 
-            LINE N 64 -112 80 -128 
-            LINE N 0 -128 64 -128 
-            LINE N 0 -32 64 -32 
-            LINE N 384 -192 320 -192 
-            RECTANGLE N 64 -320 320 -64 
         END BLOCKDEF
         BEGIN BLOCKDEF comp8
             TIMESTAMP 2026 3 8 4 53 17
@@ -146,7 +141,7 @@ BEGIN SCHEMATIC
             LINE N 320 -160 384 -160 
         END BLOCKDEF
         BEGIN BLOCKDEF FiFoSRAM
-            TIMESTAMP 2026 3 9 21 54 18
+            TIMESTAMP 2026 3 10 1 14 4
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -159,7 +154,7 @@ BEGIN SCHEMATIC
             LINE N 0 464 32 464 
             BEGIN LINE W 256 48 288 48 
             END LINE
-            BEGIN LINE W 256 368 288 368 
+            BEGIN LINE W 256 272 288 272 
             END LINE
         END BLOCKDEF
         BEGIN BLOCKDEF and2b1
@@ -173,6 +168,21 @@ BEGIN SCHEMATIC
             LINE N 0 -64 40 -64 
             CIRCLE N 40 -76 64 -52 
         END BLOCKDEF
+        BEGIN BLOCKDEF cb8ce
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 384 -128 320 -128 
+            RECTANGLE N 320 -268 384 -244 
+            LINE N 384 -256 320 -256 
+            LINE N 0 -192 64 -192 
+            LINE N 192 -32 64 -32 
+            LINE N 192 -64 192 -32 
+            LINE N 80 -128 64 -144 
+            LINE N 64 -112 80 -128 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -32 64 -32 
+            LINE N 384 -192 320 -192 
+            RECTANGLE N 64 -320 320 -64 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_5 m2_1_8
             PIN sel SRAMOp
             PIN D0(7:0) XLXN_51(7:0)
@@ -184,22 +194,6 @@ BEGIN SCHEMATIC
             PIN D XLXN_23
             PIN G clk
             PIN Q WriteLast
-        END BLOCK
-        BEGIN BLOCK XLXI_15 cb8ce
-            PIN C clk
-            PIN CE FifoRead
-            PIN CLR rst
-            PIN CEO
-            PIN Q(7:0) XLXN_39(7:0)
-            PIN TC
-        END BLOCK
-        BEGIN BLOCK XLXI_16 cb8ce
-            PIN C clk
-            PIN CE XLXN_76
-            PIN CLR rst
-            PIN CEO
-            PIN Q(7:0) XLXN_51(7:0)
-            PIN TC
         END BLOCK
         BEGIN BLOCK XLXI_21 or2
             PIN I0 FifoRead
@@ -254,15 +248,26 @@ BEGIN SCHEMATIC
             PIN I1 WriteLast
             PIN O XLXN_23
         END BLOCK
+        BEGIN BLOCK XLXI_36 cb8ce
+            PIN C clk
+            PIN CE XLXN_76
+            PIN CLR rst
+            PIN CEO
+            PIN Q(7:0) XLXN_51(7:0)
+            PIN TC
+        END BLOCK
+        BEGIN BLOCK XLXI_37 cb8ce
+            PIN C clk
+            PIN CE FifoRead
+            PIN CLR rst
+            PIN CEO
+            PIN Q(7:0) XLXN_39(7:0)
+            PIN TC
+        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
         BEGIN INSTANCE XLXI_5 2096 2032 R0
         END INSTANCE
-        BEGIN BRANCH XLXN_6(7:0)
-            WIRE 2480 1872 2704 1872
-            WIRE 2704 1872 2704 2016
-            WIRE 2704 2016 2928 2016
-        END BRANCH
         BEGIN BRANCH XLXN_7(71:0)
             WIRE 2480 2176 2704 2176
             WIRE 2704 2048 2704 2176
@@ -271,14 +276,14 @@ BEGIN SCHEMATIC
         BEGIN BRANCH clk
             WIRE 560 2624 896 2624
             WIRE 896 2624 2832 2624
-            WIRE 896 400 1344 400
-            WIRE 896 400 896 784
+            WIRE 896 336 1392 336
+            WIRE 896 336 896 784
             WIRE 896 784 896 1312
             WIRE 896 1312 896 1488
             WIRE 896 1488 2144 1488
             WIRE 896 1488 896 2624
             WIRE 896 1312 1456 1312
-            WIRE 896 784 1376 784
+            WIRE 896 784 1392 784
             WIRE 2832 2208 2928 2208
             WIRE 2832 2208 2832 2432
             WIRE 2832 2432 2928 2432
@@ -300,7 +305,7 @@ BEGIN SCHEMATIC
         BEGIN BRANCH FifoRead
             WIRE 592 1440 880 1440
             WIRE 880 1440 1168 1440
-            WIRE 880 720 1376 720
+            WIRE 880 720 1392 720
             WIRE 880 720 880 1440
         END BRANCH
         BEGIN BRANCH rst
@@ -310,8 +315,9 @@ BEGIN SCHEMATIC
             WIRE 864 1376 1168 1376
             WIRE 864 1376 864 1584
             WIRE 864 1584 2144 1584
-            WIRE 864 880 1376 880
-            WIRE 864 496 1344 496
+            WIRE 864 880 1392 880
+            WIRE 864 432 1392 432
+            WIRE 864 432 864 496
         END BRANCH
         IOMARKER 672 496 rst R180 28
         BEGIN INSTANCE XLXI_22 2144 1056 R0
@@ -320,7 +326,7 @@ BEGIN SCHEMATIC
             WIRE 2528 832 2624 832
         END BRANCH
         BEGIN BRANCH XLXN_39(7:0)
-            WIRE 1760 656 2096 656
+            WIRE 1776 656 2096 656
             WIRE 2096 656 2912 656
             WIRE 2912 656 2912 2240
             WIRE 2912 2240 2928 2240
@@ -364,11 +370,11 @@ BEGIN SCHEMATIC
         IOMARKER 1712 1872 SRAMOp R180 28
         IOMARKER 560 2624 clk R180 28
         BEGIN BRANCH WriteLast
-            WIRE 1072 1056 1904 1056
-            WIRE 1904 1056 1904 1120
+            WIRE 1072 1008 1904 1008
+            WIRE 1904 1008 1904 1120
             WIRE 1904 1120 1904 1184
             WIRE 1904 1120 2960 1120
-            WIRE 1072 1056 1072 1152
+            WIRE 1072 1008 1072 1152
             WIRE 1072 1152 1104 1152
             WIRE 1840 1184 1904 1184
             WIRE 2960 928 2976 928
@@ -378,10 +384,6 @@ BEGIN SCHEMATIC
         END INSTANCE
         BEGIN INSTANCE XLXI_28 2928 1968 R0
         END INSTANCE
-        BEGIN BRANCH DataOutB(71:0)
-            WIRE 3216 2336 3264 2336
-        END BRANCH
-        IOMARKER 3264 2336 DataOutB(71:0) R0 28
         IOMARKER 1808 2304 SRAMData(71:0) R180 28
         IOMARKER 1744 2240 FiFoIn(71:0) R180 28
         BEGIN BRANCH SRAMData(71:0)
@@ -395,17 +397,15 @@ BEGIN SCHEMATIC
             WIRE 1792 2000 2096 2000
         END BRANCH
         BEGIN BRANCH XLXN_51(7:0)
-            WIRE 1728 272 2080 272
-            WIRE 2080 272 2080 928
+            WIRE 1776 208 2080 208
+            WIRE 2080 208 2080 928
             WIRE 2080 928 2144 928
             WIRE 2080 928 2080 1360
             WIRE 2080 1360 2144 1360
             WIRE 2080 1360 2080 1936
             WIRE 2080 1936 2096 1936
         END BRANCH
-        INSTANCE XLXI_16 1344 528 R0
         IOMARKER 560 1216 FifoWrite R180 28
-        INSTANCE XLXI_15 1376 912 R0
         INSTANCE XLXI_30 848 368 R0
         BEGIN BRANCH FifoWrite
             WIRE 560 1216 832 1216
@@ -414,16 +414,25 @@ BEGIN SCHEMATIC
             WIRE 832 240 832 1216
             WIRE 832 240 848 240
         END BRANCH
+        INSTANCE XLXI_31 1104 1280 R0
+        BEGIN BRANCH DataOutB(71:0)
+            WIRE 3216 2240 3264 2240
+        END BRANCH
+        IOMARKER 3264 2240 DataOutB(71:0) R0 28
+        BEGIN BRANCH XLXN_6(7:0)
+            WIRE 2480 1872 2704 1872
+            WIRE 2704 1872 2704 2016
+            WIRE 2704 2016 2928 2016
+        END BRANCH
         BEGIN BRANCH XLXN_76
             WIRE 1040 368 1040 1216
             WIRE 1040 1216 1104 1216
             WIRE 1040 368 1120 368
             WIRE 1104 272 1120 272
-            WIRE 1120 272 1328 272
-            WIRE 1328 272 1328 336
-            WIRE 1328 336 1344 336
             WIRE 1120 272 1120 368
+            WIRE 1120 272 1392 272
         END BRANCH
-        INSTANCE XLXI_31 1104 1280 R0
+        INSTANCE XLXI_36 1392 464 R0
+        INSTANCE XLXI_37 1392 912 R0
     END SHEET
 END SCHEMATIC

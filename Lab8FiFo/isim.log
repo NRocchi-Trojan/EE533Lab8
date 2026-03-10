@@ -1,0 +1,40 @@
+Command line:
+   ./ConvFifo_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1058
+
+Mon Mar 09 17:20:12 2026
+
+Total Line Count : 329
+
+ Elaboration Time: 0.65625 sec
+
+ Current Memory Usage: 142.479 Meg
+
+ Total Signals          : 522
+ Total Nets             : 526
+ Total Signal Drivers   : 161
+ Total Blocks           : 100
+ Total Primitive Blocks : 78
+ Total Processes        : 262
+ Total Traceable Variables  : 80
+ Total Scalar Nets and Variables : 879
+ntrace select -o on -n /ConvFifo_tb/clk 
+ntrace select -o on -n /ConvFifo_tb/DataOutA 
+ntrace select -o on -n /ConvFifo_tb/DataOutB 
+ntrace select -o on -n /ConvFifo_tb/FifoFull 
+ntrace select -o on -n /ConvFifo_tb/HeadFifoAddr 
+ntrace select -o on -n /ConvFifo_tb/FiFoIn 
+ntrace select -o on -n /ConvFifo_tb/FifoRead 
+ntrace select -o on -n /ConvFifo_tb/FifoWrite 
+ntrace select -o on -n /ConvFifo_tb/PacketHead 
+ntrace select -o on -n /ConvFifo_tb/PacketTail 
+ntrace select -o on -n /ConvFifo_tb/rst 
+ntrace select -o on -n /ConvFifo_tb/SRAMAddr 
+ntrace select -o on -n /ConvFifo_tb/SRAMData 
+ntrace select -o on -n /ConvFifo_tb/SRAMOp 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.

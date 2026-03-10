@@ -840,7 +840,9 @@ proc restore { { project_dir "" } } {
       "ConvFifo_tb_selfcheck_beh.v" 
       "ConvertibleFifo.sch" 
       "FiFoSRAM.xco" 
+      "cb8ceTeam7.sch" 
       "comp8.sch" 
+      "latch_synch_clear.v" 
       "m2_1_72.v" 
       "m2_1_8.v"}
 
@@ -857,6 +859,7 @@ proc restore { { project_dir "" } } {
       "FiFoSRAM.veo" 
       "FiFoSRAM.vhd" 
       "FiFoSRAM.vho" 
+      "latch_synch_clear.sym" 
       "m2_1_72.sym" 
       "m2_1_8.sym"}
 

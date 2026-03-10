@@ -2,3 +2,5 @@ sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/ConvertibleFifo.sch" ConvertibleFifo.vf
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/ConvertibleFifo.sch" ConvertibleFifo.vf
 sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/ConvertibleFifo.sch" ConvertibleFifo.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/ConvertibleFifo.sch" ConvertibleFifo.vf
+sch2verilog -intstyle ise -family virtex2p   -w "Z:/SharedXM/EE533Lab8/Lab8FiFo/ConvertibleFifo.sch" ConvertibleFifo.vf
